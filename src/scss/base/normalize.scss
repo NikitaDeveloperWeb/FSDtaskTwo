@@ -1,1 +1,47 @@
 @import '../fonts.scss';
+@import './colors.scss';
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: Monserrat;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 24px;
+  color: $DarkShade75;
+}
+a {
+  text-decoration: none;
+}
+h1 {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 29.26px;
+  color: $DarkShade100;
+}
+h2 {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 19px;
+  line-height: 23.16px;
+  color: $DarkShade100;
+}
+h3 {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 14.63px;
+  color: $DarkShade100;
+}

@@ -1,0 +1,33 @@
+$DarkShade100: hsla(236, 35%, 19%, 1);
+$DarkShade75: hsla(236, 35%, 19%, 0.75);
+$DarkShade50: hsla(236, 35%, 19%, 0.5);
+$DarkShade25: hsla(236, 35%, 19%, 0.25);
+$DarkShade5: hsla(236, 35%, 19%, 0.05);
+$Purple: #bc9cff;
+$Green: #6fcf97;
+$backgroundOne: #e5e5e5;
+
+.darkShade100 {
+  background-color: $DarkShade100;
+}
+.darkShade75 {
+  background-color: $DarkShade75;
+}
+.darkShade100 {
+  background-color: $DarkShade100;
+}
+.darkShade50 {
+  background-color: $DarkShade50;
+}
+.darkShade25 {
+  background-color: $DarkShade25;
+}
+.darkShade5 {
+  background-color: $DarkShade5;
+}
+.purple {
+  background-color: $Purple;
+}
+.green {
+  background-color: $Green;
+}

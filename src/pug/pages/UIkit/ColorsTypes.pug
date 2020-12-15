@@ -1,0 +1,41 @@
+extends ../../layout/main
+//-карточки цветов
+mixin color(name,color_code,color)
+  .color
+    div(class="color_box" class=color)
+    .color_data
+      h2=name
+      p=color_code
+
+block variables
+  - var title = 'Types&Colors'
+block content
+  .container
+    .logo
+      include ../../components/logo.pug
+    .wrapper
+      .colors
+        +color('Dark Shade 100%', '#1F2041','darkShade100')
+        +color('Dark Shade 75%', '#1F2041','darkShade75')
+        +color('Dark Shade 50%', '#1F2041','darkShade50')
+        +color('Dark Shade 25%', '#1F2041','darkShade25')
+        +color('Dark Shade 5%', '#1F2041','darkShade5')
+        +color('Purple', '#BC9CFF','purple')
+        +color('Green', '#6FCF97','green')
+      .typography     
+        .typography_elem
+          h1 H1
+          div
+            h1 This one is the sub-section or widget title
+        .typography_elem
+          h2 H2
+          div
+            h2 Next one is the item title inside widgets
+        .typography_elem
+          h3 H3
+          div
+            h3 THIS IS A LABEL OR CTA TEXT
+        .typography_elem
+          p Body
+          div
+            p This is the body text which is used for most of the design, like paragraphs, lists, etc.     
