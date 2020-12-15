@@ -21,8 +21,13 @@ const PATHS = {
 };
 
 //pug pages
-const PAGES_DIR = `${PATHS.src}/pug/pages/`;
-const PAGES = fs.readdirSync(PAGES_DIR).filter((fileName) => fileName.endsWith('.pug'));
+const PAGES_DIR_UIkit = `${PATHS.src}/pug/pages/UIkit`;
+const PAGES_UIkit = fs.readdirSync(PAGES_DIR_UIkit).filter((fileName) => fileName.endsWith('.pug'));
+
+const PAGES_DIR_Templates = `${PATHS.src}/pug/pages/Templates`;
+const PAGES_Templates = fs
+  .readdirSync(PAGES_DIR_Templates)
+  .filter((fileName) => fileName.endsWith('.pug'));
 
 //optimization
 const optimization = () => {
@@ -84,13 +89,14 @@ module.exports = {
     hot: isDev,
   },
   plugins: [
-    ...PAGES.map(
+    ...PAGES_UIkit.map(
       (page) =>
         new HtmlWebpackPlugin({
-          template: `${PAGES_DIR}/${page}`,
+          template: `${PAGES_DIR_UIkit}/${page}`,
           filename: `./${page.replace(/\.pug/, '.html')}`,
         }),
     ),
+
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: filename('.css'),
