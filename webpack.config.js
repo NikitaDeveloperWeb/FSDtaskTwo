@@ -8,7 +8,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 //build state
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -17,7 +17,7 @@ const isProd = !isDev;
 const PATHS = {
   src: path.join(__dirname, 'src'),
   dist: path.join(__dirname, 'dist'),
-  assets: 'assets/',
+  assets: 'assets',
 };
 
 //pug pages
@@ -66,6 +66,7 @@ module.exports = {
   output: {
     filename: filename('js'),
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '',
   },
   resolve: {
     extensions: ['.js', '.json', '.css', '.png', '.pug', '.scss', 'jpg'],
@@ -94,6 +95,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: filename('.css'),
     }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: `${PATHS.src}/scss/fonts`, to: '/fonts' }],
+    }),
   ],
   module: {
     rules: [
@@ -112,22 +116,31 @@ module.exports = {
       {
         test: /\.css$/,
         use: cssLoader(),
+        exclude: '/node_modules/',
       },
       {
         test: /\.scss$/,
         use: cssLoader('sass-loader'),
+        exclude: '/node_modules/',
       },
       //image
       {
         test: /\.(png|jpg|svg|gif)$/,
         use: ['file-loader'],
+        exclude: '/node_modules/',
       },
       //fonts
       {
         test: /\.(woff(2)?|ttf|eot|svg)$/,
         use: ['file-loader'],
+        exclude: '/node_modules/',
       },
-
+      // //svg
+      // {
+      //   test: /\.svg$/,
+      //   use: ['svg-loader'],
+      //   exclude: '/node_modules/',
+      // },
       //pug
       {
         test: /\.pug$/,
