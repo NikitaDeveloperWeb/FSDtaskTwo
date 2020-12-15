@@ -23,6 +23,7 @@
           border-radius: 6px;
         }
         &_data {
+          font-family: Quicksand, sans-serif;
           width: 170px;
           height: 70px;
           position: relative;
@@ -58,6 +59,7 @@
           h3 {
             color: $DarkShade100;
             width: 369px;
+            font-weight: 700;
           }
           p {
             color: $DarkShade75;
