@@ -1,3 +1,3 @@
 @import './base/normalize.scss', './base/colors.scss', './fonts.scss';
-// @import './components/';
-@import './pages/Uikit/ColorsTypes.scss';
+@import './components/input.scss', './components/dropdown.scss', './components/arrow.scss';
+@import './pages/Uikit/ColorsTypes.scss', './pages/Uikit/FormsElement.scss';

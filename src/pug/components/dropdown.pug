@@ -1,0 +1,22 @@
+mixin dropdown(text,options,buttons,id,data_atr)
+  .select(id=id)
+    .select__input(data-type=data_atr)
+      p=text
+      include ./arrow.pug
+      +arrow()
+    .select__dropdown
+      ul
+        each opt in options
+          li
+            h3=opt
+            .counter__block
+              include ./counter.pug
+              +minus()
+              .counter 0
+              +plus()
+      if buttons===true       
+        .select__button
+          button ОЧИСТИТЬ
+          button ПРИМЕНИТЬ
+      else
+      

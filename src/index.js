@@ -1,5 +1,7 @@
+import { Dropdown } from './assets/scripts/dropdown';
 // SCSS
 import './scss/main.scss';
-// import 'normalize.css';
-//jquery
-import * as all from 'jquery';
+
+const dropdown = new Dropdown('guest', {});
+
+window.s = dropdown;
