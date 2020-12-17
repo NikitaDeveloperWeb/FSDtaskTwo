@@ -1,5 +1,6 @@
 export class Dropdown {
   constructor(selector, options) {
+    //dropdown block
     this.$el = document.getElementById(selector);
     //input
     this.$arrow = this.$el.querySelector('.arrow__down');
@@ -53,11 +54,12 @@ export class Dropdown {
 
     this.$listCategories.innerHTML = [list];
   }
-
+  //setting dropdown
   #setup() {
     this.clickHandler = this.clickHandler.bind(this);
     this.$el.addEventListener('click', this.clickHandler);
   }
+  //handler click
   clickHandler(event) {
     const { type } = event.target.dataset;
 
@@ -65,23 +67,25 @@ export class Dropdown {
       this.toggle();
     }
   }
-
+  //getter for check state dropdown
   get isOpen() {
     return this.$el.classList.contains('open');
   }
-
+  //swift state dropdown
   toggle() {
     this.isOpen ? this.close() : this.open();
   }
-
+  //open dropdown
   open() {
     this.$el.classList.add('open');
     this.$arrow.classList.add('arrow__up');
   }
+  //close dropdown
   close() {
     this.$el.classList.remove('open');
     this.$arrow.classList.remove('arrow__up');
   }
+  //delete listener
   destroy() {
     this.$el.removeEventListener('click', this.clickHandler);
   }
