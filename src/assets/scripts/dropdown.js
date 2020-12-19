@@ -73,11 +73,12 @@ export class Dropdown {
       this.toggle();
     } else if (type === 'plus') {
       document.onclick = (e) => {
-        if ((e.target.id = `0+${this.selector}plus`)) {
+        console.log(e.target.id);
+        if (e.target.id === `0${this.selector}plus`) {
           this.categories[0].quantity++;
-        } else if ((e.target.id = `1+${this.selector}plus`)) {
+        } else if (e.target.id === `1${this.selector}plus`) {
           this.categories[1].quantity++;
-        } else if ((e.target.id = `2+${this.selector}plus`)) {
+        } else if (e.target.id === `2${this.selector}plus`) {
           this.categories[2].quantity++;
         }
       };
