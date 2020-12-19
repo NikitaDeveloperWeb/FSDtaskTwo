@@ -1,7 +1,7 @@
 mixin dropdown(text,buttons,id,data_atr)
   .select(id=id)
     .select__input(data-type=data_atr)
-      p=text
+      p(class="info")=text
       include ./arrow.pug
       +arrow()
     .select__dropdown

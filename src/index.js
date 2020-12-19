@@ -3,8 +3,8 @@ import { Dropdown } from './assets/scripts/dropdown';
 import './scss/main.scss';
 
 /*TODO:
--Перенести блок счетчиков в js
 -Доделать счетчики
+-Сделать календарь
 */
 
 const dropdown = new Dropdown('guest', {
