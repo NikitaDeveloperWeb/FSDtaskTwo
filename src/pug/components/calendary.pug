@@ -1,7 +1,12 @@
-mixin calendary(type,name)
+mixin calendary(type,name,placeholder,idCal)
   if type === "standart"
-    .calendary
-      .calendary_data
+    .calendary(id=idCal)
+      .calendary__data
         h3= name
+      .calendary__input(data-type='input')
+        p(class="info")=placeholder
+        include ./arrow.pug
+        +arrow()
+      .calendary__dropdown  
   else
     .interval  

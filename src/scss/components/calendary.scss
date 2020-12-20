@@ -1,3 +1,30 @@
+@import '../base/colors.scss';
 .calendary {
+  width: 320px;
+  height: auto;
   margin-top: 20px;
+  position: relative;
+  &__data {
+    position: relative;
+    margin-bottom: 5px;
+  }
+  &__input {
+    width: 150px;
+    height: 44px;
+    border: 1px solid $inputBorder;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px 12px 15px;
+  }
+  &__dropdown {
+    display: none;
+  }
+}
+.open {
+  .calendary__dropdown {
+    display: block;
+  }
 }

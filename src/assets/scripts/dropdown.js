@@ -16,7 +16,7 @@ export class Dropdown {
     this.categories = options.categories;
     this.counter = 0;
 
-    //private methods
+    //methods
     this.#setup();
     this.render();
   }
@@ -66,8 +66,7 @@ export class Dropdown {
   //handler click
   clickHandler(event) {
     const { type } = event.target.dataset;
-    //TODO
-    // не меняются значения других счетчиков
+
     if (type === 'input' || type === 'ok') {
       this.toggle();
     } else if (type === 'plus') {

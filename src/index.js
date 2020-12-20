@@ -1,4 +1,5 @@
 import { Dropdown } from './assets/scripts/dropdown';
+import { CalendaryPicker } from './assets/scripts/calendary';
 // SCSS
 import './scss/main.scss';
 
@@ -15,4 +16,7 @@ const dropdown = new Dropdown('guest', {
   ],
 });
 
+const calendary = new CalendaryPicker('#calendaryStandart', {});
+
+window.c = calendary;
 window.s = dropdown;
