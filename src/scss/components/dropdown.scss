@@ -1,13 +1,44 @@
 @import '../base/colors.scss';
 .select {
+  margin-top: 20px;
   position: relative;
+  &::placeholder {
+    color: $inputBorder;
+  }
+  &:hover {
+    .select__input,
+    .select__dropdown {
+      border-color: $DarkShade50;
+    }
+  }
+  &:focus {
+    .select__input,
+    .select__dropdown {
+      border-color: $DarkShade50;
+    }
+  }
 
+  &__data {
+    display: flex;
+    width: 320px;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: auto 0;
+    margin-bottom: 5px;
+    h3 {
+      color: $DarkShade100;
+    }
+    p {
+      color: $DarkShade50;
+      font-size: 12px;
+    }
+  }
   &__input {
     width: 320px;
     height: 44px;
     border: 1px solid $inputBorder;
     border-radius: 4px;
-    margin-top: 20px;
+
     display: flex;
     padding: 8px 15px 8px 15px;
     font-size: 14px;
@@ -82,8 +113,10 @@
 .open {
   .select__dropdown {
     display: block;
+    border-color: $DarkShade50;
   }
   .select__input {
     border-bottom: none;
+    border-color: $DarkShade50;
   }
 }

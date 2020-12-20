@@ -1,5 +1,8 @@
-mixin dropdown(text,buttons,id,data_atr)
+mixin dropdown(text,buttons,id,data_atr,name,state)
   .select(id=id)
+    .select__data
+      h3=name
+      p=state
     .select__input(data-type=data_atr)
       p(class="info")=text
       include ./arrow.pug
@@ -8,7 +11,7 @@ mixin dropdown(text,buttons,id,data_atr)
       ul(class="list_categories")
       if buttons===true       
         .select__button
-          button(id="button_clear") ОЧИСТИТЬ
-          button ПРИМЕНИТЬ
+          button(id="button_clear" data-type="cancel") ОЧИСТИТЬ
+          button(data-type="ok") ПРИМЕНИТЬ
       else
       

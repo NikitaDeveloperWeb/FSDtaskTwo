@@ -13,6 +13,8 @@ block content
         +input('text','Email','TEXT FIELD','DEFAULT','default')
         +input('text','This is pretty awesome','TEXT FIELD','HOVER/FOCUS','default')
         include ../../components/dropdown.pug
-        +dropdown('Сколько гостей',true,'guest','input') 
-        //- +input('text','ДД.ММ.ГГ','MASKED TEXT FIELD','','default')
+        +dropdown('Сколько гостей',true,'guest','input','DROPDOWN','') 
+        +input('text','ДД.ММ.ГГ','MASKED TEXT FIELD','','default')
+        include ../../components/calendary.pug
+        +calendary('standart','DATE DROPDOWN')
        

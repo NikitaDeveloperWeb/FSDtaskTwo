@@ -20,7 +20,6 @@ export class Dropdown {
     this.#setup();
     this.render();
   }
-
   render() {
     let quantity = 0;
     this.categories.forEach((element) => {
@@ -40,7 +39,7 @@ export class Dropdown {
       <li>
       ${obj.name}
       <div class="counter__block">
-        <div class="counter_method" data-type="minus">
+        <div class="counter_method" data-type="minus" id=${index + this.selector + 'minus'}>
           <svg width="6" height="2" viewBox="0 0 6 2" fill="none" xmlns="http://www.w3.org/2000/svg" class="minus" >
             <path d="M0.643477 0.564H5.35948V1.68H0.643477V0.564Z" fill="#1F2041" fill-opacity="0.5"></path>
           </svg>
@@ -69,11 +68,10 @@ export class Dropdown {
     const { type } = event.target.dataset;
     //TODO
     // не меняются значения других счетчиков
-    if (type === 'input') {
+    if (type === 'input' || type === 'ok') {
       this.toggle();
     } else if (type === 'plus') {
       document.onclick = (e) => {
-        console.log(e.target.id);
         if (e.target.id === `0${this.selector}plus`) {
           this.categories[0].quantity++;
         } else if (e.target.id === `1${this.selector}plus`) {
@@ -82,15 +80,59 @@ export class Dropdown {
           this.categories[2].quantity++;
         }
       };
+      let quantity = 0;
+      this.categories.forEach((el) => {
+        quantity = quantity + el.quantity;
+      });
 
-      this.$info.innerHTML = `${this.counter} гость`;
-
+      if (quantity != 0) {
+        let conditions = quantity - parseInt(quantity / 10);
+        if (2 > conditions == 1) {
+          this.$info.innerHTML = `${quantity} гость`;
+        } else if (conditions > 4) {
+          this.$info.innerHTML = `${quantity} гостей`;
+        } else if (conditions > 1 && conditions < 5) {
+          this.$info.innerHTML = `${quantity} гостя`;
+        }
+      }
       this.render();
     } else if (type === 'minus') {
-      this.categories[0].quantity--;
-      if (this.categories[0].quantity <= 0) {
-        this.categories[0].quantity = 0;
+      document.onclick = (e) => {
+        if (e.target.id === `0${this.selector}minus`) {
+          this.categories[0].quantity > 0
+            ? this.categories[0].quantity--
+            : (this.categories[0].quantity = 0);
+        } else if (e.target.id === `1${this.selector}minus`) {
+          this.categories[1].quantity > 0
+            ? this.categories[1].quantity--
+            : (this.categories[1].quantity = 0);
+        } else if (e.target.id === `2${this.selector}minus`) {
+          this.categories[2].quantity > 0
+            ? this.categories[2].quantity--
+            : (this.categories[2].quantity = 0);
+        }
+      };
+      let quantity = 0;
+      this.categories.forEach((el) => {
+        quantity = quantity + el.quantity;
+      });
+
+      if (quantity != 0) {
+        let conditions = quantity - parseInt(quantity / 10);
+        if (2 > conditions == 1) {
+          this.$info.innerHTML = `${quantity} гость`;
+        } else if (conditions > 4) {
+          this.$info.innerHTML = `${quantity} гостей`;
+        } else if (conditions > 1 && conditions < 5) {
+          this.$info.innerHTML = `${quantity} гостя`;
+        }
       }
+      this.render();
+    } else if (type === 'cancel') {
+      for (let el of this.categories) {
+        el.quantity = 0;
+      }
+      this.$info.innerHTML = `Сколько гостей`;
       this.render();
     }
   }
